@@ -1,0 +1,86 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Desafio Introdução ao SOLID",
+        "description": "Documentação referente a introdução ao SOLID.",
+        "version": "1.0.0",
+        "contact": {
+            "email": "antoniosvuono@icloud.com"
+        }
+    },
+    "paths": {
+        "/users": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Create a new user.",
+                "description": "Create a new user.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Geraldo Almeida",
+                                    "email": "geraldo@teste.com"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description":  "Created"
+                    },
+                    "400": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Users"],
+                "summary": "Return all users.",
+                "description": "This route list all users created.",
+                "responses": {
+                    "400": {
+                        "description": "Error"
+                    }
+                }
+                
+            }
+        },
+        "/users/{user_id}": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Return one user.",
+                "description": "This route return one user registered on this app.",
+                "responses": {
+                    "400": {
+                        "description": "Error"
+                    }
+                }
+                
+            }
+        },
+        "/users/{user_id}/admin": {
+            "patch": {
+                "tags": ["Users"],
+                "summary": "Turn user a admin.",
+                "description": "This route update a user to a admin.",
+                "responses": {
+                    "400": {
+                        "description": "Error"
+                    }
+                }
+                
+            }
+        }
+    }
+}
